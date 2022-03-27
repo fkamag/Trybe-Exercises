@@ -19,3 +19,25 @@ filhoDoElementoOndeVoceEsta.id = "filhoDoElementoOndeVoceEsta";
 filhoDoElementoOndeVoceEsta.innerText = "filho Do Elemento Onde Voce Esta";
 pai3.appendChild(filhoDoElementoOndeVoceEsta);
 
+// let list =  document.getElementById('pai');
+// console.log (list);
+// let sonList = pai.childNodes
+// console.log (sonList);
+// for (let i=0;i<sonList.length;i++) {
+//     let element = sonList[i];
+//     if (element.id !== 'elementoOndeVoceEsta' || element.id !== 'filhoDoElementoOndeVoceEsta') {
+//         element.remove();
+//         console.log (sonList);
+//     }
+// }
+const pai = document.getElementById('pai');
+
+    for (let index = pai.childNodes.length - 1; index >= 0; index -= 1) {
+      const currentChildren = pai.childNodes[index];
+      if (currentChildren.id !== 'elementoOndeVoceEsta') {
+        currentChildren.remove();
+      }
+    }
+
+    const segundoEUltimoFilhoDoFilho = document.getElementById('segundoEUltimoFilhoDoFilho');
+    segundoEUltimoFilhoDoFilho.remove();

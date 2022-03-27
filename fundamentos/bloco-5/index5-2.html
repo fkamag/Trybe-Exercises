@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.2</title>
+    <style>
+      section {
+        border-color: black;
+        border-style: solid;
+      }
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+
+      .main-content .left-content {
+        background-color: green;
+        width: 60%;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .main-content .left-content .small-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+      }
+
+      .main-content .right-content {
+        background-color: blue;
+        width: 60%;
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      .main-content .description {
+        text-align: center;
+      }
+      .right2-content {
+        background-color: blue;
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // COLOQUE SEU CÓDIGO AQUI
+      let  = document.getElementsByTagName('body');
+      let title = document.createElement('h1');
+      title.innerText = "Exercício 5.2 - JavaScript DOM";
+      document.body.appendChild(title);
+
+      let mainElement = document.createElement('main');
+      mainElement.className = "main-content";
+      document.body.appendChild(mainElement);
+
+      let centerContent = document.createElement('section');
+      mainElement.appendChild(centerContent);
+      centerContent.className = "center-content";
+
+      let paragraph = document.createElement('p');
+      centerContent.appendChild(paragraph);
+      paragraph.innerText = "texto do parágrafo";
+
+      let leftContent = document.createElement('section');
+      mainElement.appendChild(leftContent);
+      leftContent.className = "left-content";
+
+      let rightContent = document.createElement('section');
+      mainElement.appendChild(rightContent);
+      rightContent.className = "right-content";
+
+      let imagem = document.createElement('img');
+      leftContent.appendChild(imagem);
+      imagem.src = 'https://picsum.photos/200';
+      imagem.className = "small-image";
+
+      let list = document.createElement('ul');
+      rightContent.appendChild(list);
+      let numbers = ['um','dois','três','quatro','cinco','seis','sete','oito','nove','dez'];
+      for (let i=0;i<numbers.length;i++) {
+          let item = document.createElement('li');
+          item.innerText = numbers[i];
+          list.appendChild(item);        
+      }
+
+      let n=3
+      for (let i=0;i<n;i++) {
+          let h3Element = document.createElement('h3');
+          mainElement.appendChild(h3Element);
+          h3Element.innerHTML = i
+          h3Element.classList.add('description');
+      }
+
+      title.classList.add('title');
+
+      let sectionRemove = document.getElementsByClassName('left-content');
+    //   mainElement.removeChild(sectionRemove[0]);
+
+      rightContent.style.marginRight = "auto";
+      centerContent.style.backgroundColor = "green";
+      
+      let itemRemove1 = 3
+      for (let i=0;i<numbers.length;i++) {
+          if (i === itemRemove1) {
+            list = list.removeChild(list.childNodes[i]);
+            // list.removeChild(list.childNodes[itemRemove2]);
+          } 
+        //   if (i === itemRemove2) {
+        //     list = list.removeChild(list.childNodes[i]);
+        //     // list.removeChild(list.childNodes[itemRemove2]);
+        //   }     
+      } 
+      let itemRemove2 = 2
+      for (let i=0;i<numbers.length;i++) {
+          if (i === itemRemove2) {
+            list = list.removeChild(list.childNodes[i]);
+            // list.removeChild(list.childNodes[itemRemove2]);
+          } 
+        //   if (i === itemRemove2) {
+        //     list = list.removeChild(list.childNodes[i]);
+        //     // list.removeChild(list.childNodes[itemRemove2]);
+        //   }     
+      } 
+
+    </script>
+  </body>
+</html>
