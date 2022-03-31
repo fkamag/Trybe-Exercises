@@ -1,0 +1,66 @@
+html {
+    box-sizing: border-box;
+    margin: 0;
+}
+  
+*, *:before, *:after {
+    box-sizing: inherit;
+    margin: 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    background-color: aquamarine;
+    align-items: center;
+    margin: 0;
+    padding-bottom: 5px;
+}
+
+header p{
+    font-size: 23px;
+    font-family: Helvetica, sans-serif;
+    justify-content:center;
+}
+
+header p {
+    font-size: 20 px;
+    align-items: center;
+}
+
+header ul li{
+    font-size: 15px;
+}
+
+aside {
+    background-color: blueviolet;
+    margin: 0;
+}
+  
+aside h2 {
+    text-align: center;
+    margin: 0;
+}
+
+article {
+    background-color: pink;
+    margin-top: 0;
+    padding: 5px;
+}
+
+footer{
+    background-color: blue;
+    padding: 5px;
+}
+
+footer h3 {
+    text-align: center;
+}
