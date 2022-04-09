@@ -166,14 +166,213 @@
 
 // console.log(findNameWithFiveLetters());
 
-const musicas = [
-  { id: '31031685', title: 'Partita in C moll BWV 997' },
-  { id: '31031686', title: 'Toccata and Fugue, BWV 565' },
-  { id: '31031687', title: 'Chaconne, Partita No. 2 BWV 1004' },
-]
+// const musicas = [
+//   { id: '31031685', title: 'Partita in C moll BWV 997' },
+//   { id: '31031686', title: 'Toccata and Fugue, BWV 565' },
+//   { id: '31031687', title: 'Chaconne, Partita No. 2 BWV 1004' },
+// ]
 
-// const findMusic= (id) => musicas.find((value) => (value.id === id) ? `Sua música escolhida é ${value.title}` : `Não localizamos esta música.`);
-// console.log(findMusic('31031687'))
+// const findMusic = (id) => Object.values(musicas).find((value) => (value.id === id ? `Sua música escolhida é ${value.title}` : `Não localizamos esta música.`));
+// console.log(findMusic('31031686'))
 
-const findMusic = (id) => musicas.find((musica) => musica.id === id );
-console.log(findMusic('31031686'));
+// const findMusic1 = (id) => musicas.find((musica) => musica.id === id );
+// console.log(findMusic1('31031686'));
+
+// const listNames = ['Maria', 'Manuela', 'Jorge', 'Ricardo', 'Wilson'];
+
+// const verifyFirstLetter = (letter, names) => names.some((name) => name[0] === letter);
+
+// console.log(verifyFirstLetter('J', listNames)); // true
+// console.log(verifyFirstLetter('x', listNames)); // false
+
+// const grades = {
+//   portugues: 'Aprovado',
+//   matematica: 'Aprovado',
+//   ingles: 'Aprovado',
+// };
+
+// const verifyGrades = (studentGrades) => (
+//   Object.values(studentGrades).every((grade) => grade === 'Aprovado')
+// );
+
+// console.log(verifyGrades(grades));
+
+// const names = ['Mateus', 'José', 'Ana', 'Cláudia', 'Bruna'];
+
+// const hasName = (arr, name) => arr.some((value => value === name));
+// console.log(hasName(names, 'Ana'));
+// console.log(hasName(names, 'Fábio'));
+
+// const people = [
+//   { name: 'Mateus', age: 18 },
+//   { name: 'José', age: 16 },
+//   { name: 'Ana', age: 23 },
+//   { name: 'Cláudia', age: 20 },
+//   { name: 'Bruna', age: 19 },
+// ];
+// const verifyAges = (arr, minimumAge) => Object.values(arr).every((value) => value.age >= minimumAge);
+// console.log(verifyAges(people, 18));
+// console.log(verifyAges(people, 15));
+
+// const food = ['arroz', 'feijão', 'farofa', 'chocolate', 'doce de leite'];
+// food.sort();
+// console.log(food);
+// // [ 'arroz', 'chocolate', 'doce de leite', 'farofa', 'feijão' ]
+
+// const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// numbers.sort();
+// console.log(numbers); // [1, 10, 2, 3, 4, 5, 6, 7, 8, 9]
+
+// const points = [40, 100, 1, 5, 25, 10];
+// points.sort((a, b) => a - b);
+// console.log(points); // [1, 5, 10, 25, 40, 100]
+
+// points.sort((a, b) => b - a);
+// console.log(points); // [ 100, 40, 25, 10, 5, 1 ]
+
+// const people = [
+//   { name: 'Mateus', age: 18 },
+//   { name: 'José', age: 16 },
+//   { name: 'Ana', age: 23 },
+//   { name: 'Cláudia', age: 20 },
+//   { name: 'Bruna', age: 19 },
+// ];
+
+// people.sort((a, b) => a.age - b.age);
+// people.sort((a, b) => b.age - a.age);
+
+// console.log(people);
+
+const books = [
+  {
+    id: 1,
+    name: 'As Crônicas de Gelo e Fogo',
+    genre: 'Fantasia',
+    author: {
+      name: 'George R. R. Martin',
+      birthYear: 1948,
+    },
+    releaseYear: 1991,
+  },
+  {
+    id: 2,
+    name: 'O Senhor dos Anéis',
+    genre: 'Fantasia',
+    author: {
+      name: 'J. R. R. Tolkien',
+      birthYear: 1892,
+    },
+    releaseYear: 1954,
+  },
+  {
+    id: 3,
+    name: 'Fundação',
+    genre: 'Ficção Científica',
+    author: {
+      name: 'Isaac Asimov',
+      birthYear: 1920,
+    },
+    releaseYear: 1951,
+  },
+  {
+    id: 4,
+    name: 'Duna',
+    genre: 'Ficção Científica',
+    author: {
+      name: 'Frank Herbert',
+      birthYear: 1920,
+    },
+    releaseYear: 1965,
+  },
+  {
+    id: 5,
+    name: 'A Coisa',
+    genre: 'Terror',
+    author: {
+      name: 'Stephen King',
+      birthYear: 1947,
+    },
+    releaseYear: 1986,
+  },
+  {
+    id: 6,
+    name: 'O Chamado de Cthulhu',
+    genre: 'Terror',
+    author: {
+      name: 'H. P. Lovecraft',
+      birthYear: 1890,
+    },
+    releaseYear: 1928,
+  },
+];
+
+// Adicione o código do exercício aqui:
+
+// Exercício 1:
+// const authorBorn = (year) => books.find(value => value.author.birthYear === year);
+// console.log(authorBorn(1947));
+// console.log(authorBorn(1890));
+
+// Exercício 2:
+// function smallerName() {
+//   let nameBook = books[0].name;
+//   books.forEach((value) => {
+//     if (value.name.length < nameBook.length) {
+//       nameBook = value.name;
+//     }
+//   });
+//   return nameBook;
+// };
+// console.log(smallerName());
+
+// Exercício 3
+// const expectedResult = {
+//   author: {
+//     birthYear: 1948,
+//     name: 'George R. R. Martin',
+//   },
+//   genre: 'Fantasia',
+//   id: 1,
+//   name: 'O Senhor dos Anéis',
+//   releaseYear: 1991,
+// };
+
+// function getNamedBook() {
+//   return books.find(value => value.name.length === expectedResult.name.length);
+// }
+// console.log(getNamedBook());
+
+// Exercício 4
+// function booksOrderedByReleaseYearDesc() {
+//   return books.sort((a, b) => b.releaseYear - a.releaseYear);
+// }
+// console.log(booksOrderedByReleaseYearDesc());
+// function booksOrderedByReleaseYear() {
+//   return books.sort((a, b) => a.releaseYear - b.releaseYear);
+// }
+// console.log(booksOrderedByReleaseYear());
+
+// Exercício 5
+// const expectedResult = false;
+// function everyoneWasBornOnSecXX() {
+//   return books.every((value) => (
+//     value.author.birthYear > 1901 && value.author.birthYear < 2000)
+//   )};
+// console.log(everyoneWasBornOnSecXX());
+
+// Exercício 6
+// function someBookWasReleaseOnThe80s() {
+//   return books.some((value) => (
+//     value.releaseYear > 1979 && value.releaseYear < 1990
+//   ))
+// };
+// console.log(someBookWasReleaseOnThe80s());
+
+// Exercíco 7
+function authorUnique() {
+  return books.every((book) =>
+    !books.some((bookSome) =>
+      (bookSome.author.birthYear === book.author.birthYear)
+      && (bookSome.author.name !== book.author.name)));
+}
+console.log(authorUnique());
