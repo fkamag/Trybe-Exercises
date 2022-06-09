@@ -1,0 +1,23 @@
+{
+  "name": "trybe-exercises",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fkamag/Iniciando.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fkamag/Iniciando/issues"
+  },
+  "homepage": "https://github.com/fkamag/Iniciando#readme",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
