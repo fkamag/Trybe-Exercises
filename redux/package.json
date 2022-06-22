@@ -1,15 +1,17 @@
 {
-  "name": "dia-1-introducao-ao-redux-o-estado-global-da-aplicacao",
+  "name": "redux",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "dependencies": {
+    "redux": "^4.2.0",
+    "redux-thunk": "^2.4.1",
+    "regenerator-runtime": "^0.13.9"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "redux": "^4.2.0"
-  }
+  "license": "ISC"
 }
