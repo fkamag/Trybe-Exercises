@@ -1,0 +1,6 @@
+REPOSITORY        TAG       IMAGE ID       CREATED          SIZE
+<none>            <none>    48170447c0d4   4 seconds ago    228MB
+
+docker run --rm 481 -f kiss "VQV Trybe"
+docker run --rm 481 -f pony "VQV Trybe"
+docker run --rm 481 -f dragon-and-cow "VQV Trybe"
