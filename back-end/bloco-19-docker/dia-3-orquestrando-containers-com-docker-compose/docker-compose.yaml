@@ -1,39 +1,27 @@
 version: "3"
 services:
-  frontend:
-    build: frontend/
-    restart: always
-    ports:
-      - 3000:3000
-    depends_on:
-      - backend
+  db:
+    image: mysql:5.7
     volumes:
-      - ./logs:/var/log/frontend
-    networks:
-      - rede-virtual-1
-  backend:
-    build: backend/
+      - db_data:/var/lib/mysql
     restart: always
-    ports:
-      - 3001:3001
     environment:
-      - DB_HOST=database
+      MYSQL_ROOT_PASSWORD: wordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+
+  wordpress:
     depends_on:
-      - database
-    networks:
-      - rede-virtual-1
-      - rede-virtual-2
-  database:
-    image: betrybe/docker-compose-example-database:v1
+      - db
+    image: wordpress
+    ports:
+      - "8080:80"
     restart: always
-    volumes:
-      - dados-do-banco:/data/db
-    networks:
-      - rede-virtual-2
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
 
 volumes:
-  dados-do-banco:
-
-networks:
-  rede-virtual-1:
-  rede-virtual-2:
+  db_data:
