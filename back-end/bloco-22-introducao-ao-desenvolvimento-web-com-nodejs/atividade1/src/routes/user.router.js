@@ -15,10 +15,11 @@ router.get('/', (req, res) => {
 })
 
 router.post('/register', usernameValidation, emailValidation, passwordValidation, async (req, res) => {
-  const { username, email, password } = req.body;
+  const data = req.body;
+  const { username, email, password } = data;
   console.log('register');
   await userDb.insert({ username, email, password });
-  res.status(201).json({ message: 'user created' });
+  res.status(201).json({ message: data });
 })
 
 router.post('/login', emailValidation, passwordValidation, loginValidation, (req, res) => {
