@@ -14,4 +14,6 @@ app.post('/books', Books.createBook);
 
 app.put('/books/:id', Books.updateBook);
 
+app.delete('/books/:id', Books.deleteBook);
+
 module.exports = app;
