@@ -1,5 +1,5 @@
-const BooksController = require('./BooksController');
+const Books = require('./books.controller');
 
 module.exports = {
-  BooksController,
+  Books,
 };
