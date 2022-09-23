@@ -3,6 +3,7 @@
 const { User } = require('../models');
 
 const getAll = async () => {
+  console.log('cheguei no service');
   const users = await User.findAll();
 
   return users;

@@ -1,11 +1,12 @@
 // src/controllers/user.controller.js
 
-const UserService = require('../services/user.service');
+const { UserService } = require('../services');
 
 const error500Message = 'Algo deu errado';
 
 const getAll = async (_req, res) => {
   try {
+    console.log('entrei no controller')
     const users = await UserService.getAll();
     return res.status(200).json(users);
   } catch (e) {
