@@ -2,7 +2,6 @@ const { BooksService } = require('../services');
 const error500 = 'Algo deu errado - status 500';
 
 const getAll = async (req, res) => {
-  console.log('cheguei no Controller');
   const books = await BooksService.getAll();
   res.status(200).json(books);
 };
