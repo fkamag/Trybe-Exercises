@@ -1,18 +1,6 @@
 import { expect } from 'chai';
 import { describe } from 'mocha';
-class Book {
-  private id: number
-  private title: string;
-  private salePrice: number;
-  private cost: number;
-
-  constructor(value: string) {
-    this.id = 0;
-    this.title = value;
-    this.salePrice = 0;
-    this.cost= 0;
-  }
-}
+import Book from '../entities/Book';
 
 describe('Teste da classe Book', () => {
   describe('Instancia da classe Book', () => {
@@ -25,6 +13,16 @@ describe('Teste da classe Book', () => {
       expect(objectBook).to.haveOwnProperty('title')
       expect(objectBook).to.haveOwnProperty('salePrice')
       expect(objectBook).to.haveOwnProperty('cost')
+    })
+    it('Deveria testar método calculeProfit', () => {
+      objectBook._salePrice = 500
+      objectBook._cost = 100
+      expect(objectBook.calculeProfit()).to.be.equal(400)
+    })
+    it('Testando método calculateProfitMargin', () => {
+      objectBook._salePrice = 500
+      objectBook._cost = 100
+      expect(objectBook.calculateProfitMargin()).to.be.equal(80);
     })
   })
 })
