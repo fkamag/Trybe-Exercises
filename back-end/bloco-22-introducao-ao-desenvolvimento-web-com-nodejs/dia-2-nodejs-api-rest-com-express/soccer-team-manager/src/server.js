@@ -1,4 +1,4 @@
 // src/server.js
 const app = require('./app');
 
-app.listen(3002, () => console.log('server running on port 3002'));
+app.listen(3002, () => console.log('servidor rodando na porta 3002'));
