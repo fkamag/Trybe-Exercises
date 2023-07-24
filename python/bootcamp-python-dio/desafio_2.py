@@ -1,7 +1,8 @@
-usuer_list = [{
+user_list = [{
     'cpf': "admin",
     'name': "Admin",
     'password': "123456",
+    'saque_diario': 0,
     'extrato': "",
     'saldo': 0
     }, ]
@@ -25,8 +26,17 @@ def login():
     return cpf
 
 
-def buscar_usuario(user):
-    print(user)
+def buscar_usuario(user, user_list):
+    result = [usuario for usuario in user_list if usuario["cpf"] == user]
+    return result[0] if result else None
+
+
+def valid_password(user):
+    password = input("Digite sua senha: ")
+    if password == user["password"]:
+        return True
+    else:
+        return False
 
 
 def menu_user():
@@ -46,7 +56,16 @@ def operations_admin():
         option = menu()
 
         if option == '1':
-            buscar_usuario(login())
+            result = buscar_usuario(login(), user_list)
+            if result is None:
+                print("Usuário não encontrado")
+            else:
+                valid = valid_password(result)
+                if valid is False:
+                    print("senha inválida")
+                else:
+                    operations(result)
+
         elif option == '2':
             print("Sistem Criar Usuário em Manutenção")
         elif option == '3':
@@ -58,9 +77,12 @@ def operations_admin():
             print("Opção inválida")
 
 
-def operations():
+def operations(user):
     while True:
         option = menu_user()
+        saldo = user["saldo"]
+        extrato = user["extrato"]
+        saque_diario = user["saque_diario"]
 
         if option == 'd':
             deposito = float(input("Informe o valor do depósito: "))
@@ -68,18 +90,23 @@ def operations():
                 saldo += deposito
                 extrato += f"depósito R$ {deposito:.2f} \n"
                 print(f"depósito R$ {deposito:.2f} realizado! \n")
+                user["saldo"] = saldo
+                user["extrato"] = extrato
             else:
                 print("Valor de depósito inválido")
 
         elif option == 's':
-            if saque_diário < 3:
+            if saque_diario < 3:
                 saque = float(input("Informe o valor do saque: "))
-                if saque < saldo:
+                if saque <= saldo:
                     if saque > 0:
                         saldo -= saque
                         extrato += f"saque R$ {saque:.2f} \n"
                         print(f"saque R$ {saque:.2f} realizado! \n")
-                        saque_diário += 1
+                        saque_diario += 1
+                        user["saldo"] = saldo
+                        user["extrato"] = extrato
+                        user["saque_diario"] = saque_diario
                     else:
                         print("Valor de saque inválido")
                 else:
