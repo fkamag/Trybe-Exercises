@@ -1,4 +1,22 @@
-usuario = [{'cpf': '123456', 'name': "Fabio", 'password': "123456"}]
+usuer_list = [{
+    'cpf': "admin",
+    'name': "Admin",
+    'password': "123456",
+    'extrato': "",
+    'saldo': 0
+    }, ]
+
+
+def menu():
+    menu = """
+
+[1] Fazer Login
+[2] Criar Usuário
+[3] Criar Conta
+[4] FIM
+
+escolha a opção desejada => """
+    return input(menu)
 
 
 def login():
@@ -11,7 +29,7 @@ def buscar_usuario(user):
     print(user)
 
 
-def menu():
+def menu_user():
     menu = """
 
 [d] Depositar
@@ -23,9 +41,26 @@ escolha a opção desejada => """
     return input(menu)
 
 
-def operations():
+def operations_admin():
     while True:
         option = menu()
+
+        if option == '1':
+            buscar_usuario(login())
+        elif option == '2':
+            print("Sistem Criar Usuário em Manutenção")
+        elif option == '3':
+            print("Sistema de Criar Conta em Manutenção")
+        elif option == '4':
+            print("Encerrando sistema")
+            break
+        else:
+            print("Opção inválida")
+
+
+def operations():
+    while True:
+        option = menu_user()
 
         if option == 'd':
             deposito = float(input("Informe o valor do depósito: "))
@@ -66,8 +101,7 @@ def operations():
 
 
 def main():
-    user = login()
-    buscar_usuario(user)
+    operations_admin()
 
 
 main()
