@@ -1,6 +1,14 @@
 user_list = [{
     'cpf': "admin",
     'name': "Admin",
+    'data_nascimento': "26/05/1970",
+    'endereco': {
+        'logradouro': "Rua Onze",
+        'numero': "704",
+        'bairro': "Centro",
+        'cidade': "Tatuí",
+        'estado': "SP"
+    },
     'password': "123456",
     'saque_diario': 0,
     'extrato': "",
@@ -39,6 +47,32 @@ def valid_password(user):
         return False
 
 
+def create_user(cpf):
+    new_user = {}
+    name = input("Nome: ")
+    date = input("Data de Nascimento: ")
+    logradouro = input("Logradouro: ")
+    numero = input("Numero: ")
+    bairro = input("Bairro: ")
+    cidade = input("Cidade: ")
+    estado = input("Estado: ")
+    password = input("Password: ")
+    new_user.update({
+        "cpf": cpf,
+        "name": name,
+        "data_nascimento": date,
+        "logradouro": logradouro,
+        "numero": numero,
+        "bairro": bairro,
+        "cidade": cidade,
+        "estado": estado,
+        "password": password,
+        "saque_diario": 0,
+        "extrato": "",
+        "saldo": 0})
+    return new_user
+
+
 def menu_user():
     menu = """
 
@@ -67,7 +101,15 @@ def operations_admin():
                     operations(result)
 
         elif option == '2':
-            print("Sistem Criar Usuário em Manutenção")
+            user = login()
+            result = buscar_usuario(user, user_list)
+            if result:
+                print("CPF já cadastrado")
+            else:
+                new_user = create_user(user)
+                user_list.append(new_user)
+                print("Cadastro realizado")
+
         elif option == '3':
             print("Sistema de Criar Conta em Manutenção")
         elif option == '4':
